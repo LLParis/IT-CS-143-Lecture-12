@@ -95,7 +95,6 @@ class Lecture12 {
         // Exercises:
 
         // None
-
     }
 
     public static void print(int[] nums) {
