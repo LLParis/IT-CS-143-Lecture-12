@@ -91,9 +91,10 @@ class Lecture12 {
         // same contents as it had at the start. In other words, if you destroy the
         // stack as you examine it, restore its state afterward. If you like, put your
         // code into a method called printLongest that accepts the stack as a parameter.
+        String[] str = {"hello", "hi", "goodbye", "howdy"};
+        printLongest(str);
 
         // Exercises:
-
         // None
     }
 
@@ -111,5 +112,36 @@ class Lecture12 {
         while (!q.isEmpty()) {
             System.out.println(q.remove() + " ");
         }
+
+        for (int num : nums) {
+            q.add(num);
+        }
+        System.out.println(q);
+    }
+
+    public static void printLongest(String[] str) {
+        Stack<String> s = new Stack<>();
+        Stack<String> ss = new Stack<>();
+        String max = "";
+
+        for (String element : str) {
+            s.push(element);
+        }
+
+        while (!s.isEmpty()) {
+            String current = s.pop();
+            if (current.length() > max.length()) {
+                max = current;
+            }
+            ss.push(current);
+        }
+
+        while (!ss.isEmpty()) {
+            s.push(ss.pop());
+        }
+
+        System.out.println(max);
+
+
     }
 }
